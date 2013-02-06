@@ -1,0 +1,19 @@
+/ 
+  %h1 hello
+  %h2 hello
+  %h3 hello
+  %h4
+    %div{:class => ["ohell"]} hey
+
+/ %canvas{:id => "myCanvas", :heigth => "200", :width => "200"}
+
+%div{:id => 'tweet_view'}
+  %div{:id => 'animator'}
+  %div{ :class => ['off_screen', 'tweet'], :id => 'swap2' }
+    %img{ :class => "image" } 
+      %h2{ :class => "text" } swap test
+  - @tweets.each do |tweet|
+    %div{ :class => ['moving', 'tweet'], :tweet_id => "#{tweet.tweet_id}"}
+      %img{ :class => "image", :src => "#{tweet.profile_image_url}" }
+        %h2{ :class => "text" } #{tweet.text}
+  %div{ :id => "cycle", :class => 'control' } cycle
